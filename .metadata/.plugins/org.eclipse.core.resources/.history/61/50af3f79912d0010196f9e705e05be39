@@ -1,0 +1,9 @@
+package com.klef.fsd.sdp.service;
+
+import com.klef.fsd.sdp.model.ServiceMember;
+
+public interface ServiceMemberService
+{
+  public String servicememberregistration(ServiceMember servicemember);
+  public ServiceMember checkservicememberlogin(String username, String password);
+}

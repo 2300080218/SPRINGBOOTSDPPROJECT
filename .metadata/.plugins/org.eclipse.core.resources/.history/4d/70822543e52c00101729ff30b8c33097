@@ -1,0 +1,13 @@
+package com.klef.fsd.sdp.model;
+
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "bookservice_table")
+public class BookService {
+
+}

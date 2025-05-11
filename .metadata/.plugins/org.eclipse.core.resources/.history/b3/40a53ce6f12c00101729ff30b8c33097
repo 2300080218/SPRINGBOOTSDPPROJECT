@@ -1,0 +1,35 @@
+package com.klef.fsd.sdp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.fsd.sdp.model.BookService;
+import com.klef.fsd.sdp.model.Customer;
+import com.klef.fsd.sdp.model.Service;
+import com.klef.fsd.sdp.repository.BookServiceRepository;
+import com.klef.fsd.sdp.repository.CustomerRepository;
+import com.klef.fsd.sdp.repository.ServiceRepository;
+
+@Service
+public class CustomerServiceImpl implements CustomerService
+{
+	@Autowired
+    private CustomerRepository customerRepository;
+	
+	@Override
+	public String customerregistration(Customer customer) 
+	{
+		customerRepository.save(customer);
+		return "Customer Registered Successfully";
+	}
+
+	@Override
+	public Customer checkcustomerlogin(String username, String password) 
+	{
+		return customerRepository.findByUsernameAndPassword(username, password);
+	}
+
+}

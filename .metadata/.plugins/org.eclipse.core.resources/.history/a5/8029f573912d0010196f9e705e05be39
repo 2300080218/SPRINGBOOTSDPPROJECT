@@ -1,0 +1,26 @@
+package com.klef.fsd.sdp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.klef.fsd.sdp.model.ServiceMember;
+import com.klef.fsd.sdp.repository.ServiceMemberRepository;
+
+@Service
+public class ServiceMemberServiceImpl implements ServiceMemberService
+{
+    @Autowired
+    private ServiceMemberRepository serviceMemberRepository;
+
+    @Override
+    public String servicememberregistration(ServiceMember servicemember) 
+    {
+        serviceMemberRepository.save(servicemember);
+        return "Service Member Registered Successfully";
+    }
+
+    @Override
+    public ServiceMember checkservicememberlogin(String username, String password) 
+    {
+        return serviceMemberRepository.findByUsernameAndPassword(username, password);
+    }
+}
